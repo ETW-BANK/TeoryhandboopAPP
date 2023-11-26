@@ -38,7 +38,7 @@ namespace Teori
                 {
                     // Retrieve and display the question text in the label
                     var questionText = context.QnAs.Where(q => q.Id == selectedQuestionId).Select(q => q.Question).FirstOrDefault();
-                    textBox1.Text = questionText;
+                    label2.Text = questionText;
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace Teori
                 if (answerExistes != null)
                 {
                     var answerText = context.QnAs.Where(q => q.Id == selectedQuestionId).Select(q => q.Answer).FirstOrDefault();
-                    textBox2.Text = answerText;
+                    label3.Text = answerText;
                 }
                 else
                 {
