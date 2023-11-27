@@ -34,6 +34,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // comboBox1
@@ -49,7 +50,7 @@
             button1.BackColor = SystemColors.Info;
             button1.Font = new Font("Showcard Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.MenuHighlight;
-            button1.Location = new Point(296, 131);
+            button1.Location = new Point(197, 122);
             button1.Name = "button1";
             button1.Size = new Size(177, 51);
             button1.TabIndex = 3;
@@ -61,9 +62,9 @@
             // 
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = SystemColors.HotTrack;
-            button2.Location = new Point(296, 471);
+            button2.Location = new Point(407, 122);
             button2.Name = "button2";
-            button2.Size = new Size(177, 40);
+            button2.Size = new Size(145, 51);
             button2.TabIndex = 4;
             button2.Text = "Show Answer";
             button2.UseVisualStyleBackColor = true;
@@ -101,12 +102,26 @@
             label3.TabIndex = 8;
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button3
+            // 
+            button3.BackColor = SystemColors.Info;
+            button3.Font = new Font("Showcard Gothic", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.ForeColor = Color.Red;
+            button3.Location = new Point(605, 507);
+            button3.Name = "button3";
+            button3.Size = new Size(177, 51);
+            button3.TabIndex = 9;
+            button3.Text = "Exit";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(808, 570);
+            Controls.Add(button3);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -117,7 +132,8 @@
             ForeColor = SystemColors.GradientActiveCaption;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Teori HandBook";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,5 +146,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button button3;
     }
 }

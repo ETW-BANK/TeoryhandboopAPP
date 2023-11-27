@@ -1,0 +1,104 @@
+   public static void WithdrawMoney()
+   {
+
+
+
+       using (EtwBankContext context = new EtwBankContext())
+       {
+
+           Console.WriteLine("\n\n\t\t================ Withdraw Money ================\n");
+
+
+         int accountId;
+         decimal withdrawalAmount;
+
+       do
+       {
+           Console.Write("Enter Account Number: ");
+           string inputAccountId = Console.ReadLine();
+
+              
+
+           if (int.TryParse(inputAccountId, out accountId))
+           {
+               break; // Break the loop if a valid integer value is entered
+           }
+
+          
+           else
+           {
+               Console.WriteLine("");
+                   Console.WriteLine("\n \u001b[31m Invalid input for Account Number. Please enter a valid integer value.\u001b[0m \n");
+
+
+               }
+           } while (true);
+
+           Console.WriteLine("\n");
+       do
+       {
+           Console.Write("Enter Withdrawal Amount: ");
+           string inputWithdrawalAmount = Console.ReadLine();
+
+          
+        if (decimal.TryParse(inputWithdrawalAmount , out withdrawalAmount)&& withdrawalAmount>0)
+           {
+                   break; // Break the loop if a valid numeric value is entered
+           }
+    
+           else
+           {
+             
+               Console.WriteLine("\n \u001b[31m Invalid input for Withdrawal Amount. Please enter a valid Amount.\u001b[0m \n");
+
+             }
+       } while (true);
+
+
+           var account = context.Accounts.SingleOrDefault(a => a.AccountNumber == accountId);
+
+           if (account != null )
+           {
+               if (account.Balance >= withdrawalAmount)
+               {
+
+                   // Update account balance after withdrawal
+                   account.Balance -= withdrawalAmount;
+
+                   context.SaveChanges();
+
+
+
+                   Console.WriteLine("\n \u001b[32m Withdrowal Sucessfull.\u001b[0m \n");
+
+
+
+
+
+               }
+               else
+               {
+                   
+                   Console.WriteLine("\n \u001b[31m Insufficient balance in the Account.\u001b[0m \n");
+
+               }
+           }
+           else
+           {
+              
+               Console.WriteLine("\n \u001b[31m Invalid Account Number. \u001b[0m \n");
+
+           }
+           currentUser.Accounts = context.Accounts
+         .Where(a => a.UserId == currentUser.UserId).ToList();
+
+
+       }
+
+
+       Thread.Sleep(1000);
+
+       Utility1.Loading();
+
+       UserMenues.UserMenu();
+   }

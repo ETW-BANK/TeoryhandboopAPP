@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+
+namespace ATM_System.Models;
+
+public partial class Account
+{
+    public int AccountId { get; set; }
+
+    public int UserId { get; set; }
+
+    public string AccountName { get; set; } = null!;
+
+    public decimal Balance { get; set; }
+
+    public string Currency { get; set; } = null!;
+
+    public virtual ICollection<Transaction> TransactionReceiverAccounts { get; set; } = new List<Transaction>();
+
+    public virtual ICollection<Transaction> TransactionSenderAccounts { get; set; } = new List<Transaction>();
+
+    public virtual User User { get; set; } = null!;
+}
+
+
+
+
+using System;
+using System.Collections.Generic;
+
+namespace ATM_System.Models;
+
+public partial class Transaction
+{
+    public int TransactionId { get; set; }
+
+    public int SenderAccountId { get; set; }
+
+    public int ReceiverAccountId { get; set; }
+
+    public decimal Amount { get; set; }
+
+    public DateTime TransactionDate { get; set; }
+
+    public virtual Account ReceiverAccount { get; set; } = null!;
+
+    public virtual Account SenderAccount { get; set; } = null!;
+}
+
+using System;
+using System.Collections.Generic;
+
+namespace ATM_System.Models;
+
+public partial class User
+{
+    public int UserId { get; set; }
+
+    public string Username { get; set; } = null!;
+
+    public string Pincode { get; set; } = null!;
+
+    public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
+}
+

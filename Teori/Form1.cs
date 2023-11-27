@@ -66,6 +66,18 @@ namespace Teori
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MaximizeBox = false;
+            MinimizeBox= false;
+            ControlBox = false;
+        }
     }
 }
 
